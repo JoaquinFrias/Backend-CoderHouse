@@ -45,9 +45,9 @@ class ProductManager {
         const products = await this.getProducts(); 
         let productById = products.find(p => p.id === id);
         if (!productById) {
-            console.log("Product not found");
+            console.log("Producto NO encontrado");
         } else {
-            console.log("Product found", productById);
+            console.log("Producto encontrado", productById);
         }
     }
     
@@ -56,11 +56,11 @@ class ProductManager {
         const getProducts = await this.getProducts(); // Use this.getProducts() instead of getJSONFromFile
         let ProdId = getProducts.some(p => p.id === id);
         if (!ProdId) {
-            console.log(`updateProduct: Product not found, id: ${id}`);
+            console.log(`Actualizacion del producto: producto no encontrado, id: ${id}`);
         } else {
             const products = { id: id, title: newTitle, description: newDescription, price: newPrice, thumbnail: newThumbnail, code: newCode, stock: newStock };
             await this.saveJSONToFile(this.path, products); // Use this.saveJSONToFile
-            console.log("Product updated successfully", products);
+            console.log("Producto actualizado exitosamente", products);
         }
     }
     
